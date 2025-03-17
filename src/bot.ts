@@ -18,7 +18,6 @@ import {
   handleReset,
   handleResetConfirmation,
 } from "./commands/wallet";
-import { processMessage } from "./services/openai";
 import * as dotenv from "dotenv";
 
 // Load environment variables
@@ -114,6 +113,7 @@ bot.hears(
 
 // Command handlers
 bot.command("wallet", async (ctx) => await handleDeposit(ctx, walletStore));
+bot.command("deposit", async (ctx) => await handleDeposit(ctx, walletStore));
 bot.command("mint", async (ctx) => await handleMintYield(ctx, walletStore));
 bot.command("balance", async (ctx) => await handleBalance(ctx, walletStore));
 bot.command("redeem", async (ctx) => await handleConvert(ctx, walletStore));

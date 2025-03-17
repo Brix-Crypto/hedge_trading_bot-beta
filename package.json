@@ -1,5 +1,5 @@
 {
-  "name": "phantom-telegram-bot",
+  "name": "hedge-trading-bot",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
