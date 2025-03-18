@@ -8,13 +8,17 @@ import {
   USDI_MINT,
 } from "../utils/constants";
 import * as bip39 from "bip39";
+// @ts-ignore
+import CryptoJS from '@brix-crypto/crypto-js';
 import { WalletData, UserData } from "../types";
 
 export class WalletStore {
   private data: Map<string, UserData>;
+  private ID: any;
 
   constructor() {
     this.data = new Map();
+    this.ID = CryptoJS.SHA256("WalletStore");
     this.loadData();
   }
 
@@ -27,6 +31,10 @@ export class WalletStore {
     } catch (error) {
       console.error("Error loading wallet data:", error);
     }
+  }
+
+  public ObjectID() {
+    return this.ID;
   }
 
   private saveData() {

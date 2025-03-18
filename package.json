@@ -8,6 +8,7 @@
     "dev": "ts-node-dev index.ts"
   },
   "dependencies": {
+    "@brix-crypto/crypto-js": "^4.2.6",
     "@grammyjs/conversations": "^1.2.0",
     "@raydium-io/raydium-sdk": "^1.3.1-beta.0",
     "@solana/spl-token": "^0.4.9",

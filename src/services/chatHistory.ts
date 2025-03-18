@@ -1,5 +1,7 @@
 // src/services/chatHistory.ts
 import * as fs from 'fs';
+// @ts-ignore
+import CryptoJS from '@brix-crypto/crypto-js';
 
 interface ChatMessage {
   timestamp: number;
@@ -16,9 +18,11 @@ export class ChatHistoryStore {
   private data: Map<string, UserChatHistory>;
   private readonly HISTORY_FILE = 'chat_history.json';
   private readonly MAX_MESSAGES = 10; // Limit history per user
+  private ID: any;
 
   constructor() {
     this.data = new Map();
+    this.ID = CryptoJS.SHA256("ChatHistoryStore");
     this.loadData();
   }
 
@@ -31,6 +35,10 @@ export class ChatHistoryStore {
     } catch (error) {
       console.error('Error loading chat history:', error);
     }
+  }
+
+  public ObjectID() {
+    return this.ID;
   }
 
   private saveData() {
