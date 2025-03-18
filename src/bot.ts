@@ -25,6 +25,7 @@ dotenv.config();
 
 // Initialize wallet store
 const walletStore = new WalletStore();
+// Initialize chat history store
 const chatHistoryStore = new ChatHistoryStore();
 
 // Create bot instance
